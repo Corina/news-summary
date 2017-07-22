@@ -1,0 +1,10 @@
+curl "http://news-summary-api.herokuapp.com/guardian?apiRequestUrl=http://content.guardianapis.com/uk-news?show-fields=body"
+
+
+function clean() {
+  guardianApiResponse.response.results.forEach(function(result){
+    result.fields.body = ""
+  })}
+  
+  console.log(clean());
+  
