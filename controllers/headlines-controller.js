@@ -10,37 +10,14 @@
     element.innerHTML = this.articleListView.getHtml();
   };
   
-  HeadlinesController.prototype.showArticleContentOnClick = function(element) {
-    var _this = this;
-    window.addEventListener("hashchange", function() {
-      _this.showArticleForCurrentPage(element);
-    })
-  };
-  
-  HeadlinesController.prototype.showArticleForCurrentPage = function(element) {
-    this.showArticle(getArticleFromUrl(window.location), element);
-  };
-  
-  function getArticleFromUrl(location) {
-    console.log(location.hash.split("#")[1]);
-    return location.hash.split("#")[1];
-  };
-  
-  
-  HeadlinesController.prototype.getArticleMatchingId = function(articleId) {
-    var articleMatching;
+  HeadlinesController.prototype.getWebUrlMatchingId = function(articleId) {
+    var webUrlMatchingId;
     this.articleList.headlines.forEach(function(article) {
       if (article.id == articleId) {
-        articleMatching = article;
+        webUrlMatchingId = article.webUrl;
       }
     });
-    return articleMatching;
-  };
-  
-  HeadlinesController.prototype.showArticle = function(articleId, element) {
-    var article = this.getArticleMatchingId(articleId);
-    var articleView = new ArticleView(article);
-    element.innerHTML = articleView.getHtml();
+    return webUrlMatchingId;
   };
   
   exports.HeadlinesController = HeadlinesController;

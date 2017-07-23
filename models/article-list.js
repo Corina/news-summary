@@ -1,13 +1,13 @@
 (function(exports){
   
-  function ArticleList(apiResponse){
+  function ArticleList(guardianApiResponse){
     this.headlines = [];
-    this.getArticles(apiResponse);
+    this.getArticles(guardianApiResponse);
   };
   
-  ArticleList.prototype.getArticles = function (apiResponse) {
+  ArticleList.prototype.getArticles = function (guardianApiResponse) {
     var _this = this;
-    apiResponse.response.results.forEach(function(result) {
+    guardianApiResponse.response.results.forEach(function(result) {
       _this.headlines.push(new Article(result.webUrl, result.webTitle, result.fields.body));
     })
   }

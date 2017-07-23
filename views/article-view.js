@@ -1,10 +1,10 @@
 (function(exports) {
-  function ArticleView(article) {
-    this.article = article;
+  function ArticleView(aylienApiResponse) {
+    this.content = aylienApiResponse.text;
   }
   
   ArticleView.prototype.getHtml = function() {
-    return "<div>" + this.article.content + "</div>";
+    return "<div>" + this.content + "</div>";
   };
   
   exports.ArticleView = ArticleView;
