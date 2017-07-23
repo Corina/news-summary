@@ -1,7 +1,7 @@
 (function(exports) {
-  function Article(apiUrl, title, content){
+  function Article(webUrl, title, content){
     this.id = this.setUniqueId();
-    this.apiUrl = apiUrl;
+    this.webUrl = webUrl;
     this.title = title;
     this.content = content;
   }

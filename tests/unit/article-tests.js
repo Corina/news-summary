@@ -1,8 +1,8 @@
 (function() {
-  var article = new Article(apiUrl, title, content);
+  var article = new Article(webUrl, title, content);
   
-  it("Article model is initialized with apiUrl, title and content", function(){
-    assertEquals(article.apiUrl, apiUrl);
+  it("Article model is initialized with webUrl, title and content", function(){
+    assertEquals(article.webUrl, webUrl);
     assertEquals(article.title, title);
     assertEquals(article.content, content);
   });

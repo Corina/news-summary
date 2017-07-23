@@ -6,11 +6,11 @@
   });
   
   it("ArticleList gets the apiUrls from the JSON response", function() {
-    var apiUrls = [];
+    var webUrls = [];
     articleListTest.headlines.forEach(function (article) {
-      apiUrls.push(article.apiUrl);
+      webUrls.push(article.webUrl);
     })
-    assertArrayEquals(apiUrls, listApiUrlsFromResponse);
+    assertArrayEquals(webUrls, listWebUrlsFromResponse);
   });
   
   it("ArticleList gets the titles from the JSON response", function() {
