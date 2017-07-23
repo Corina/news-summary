@@ -1,15 +1,15 @@
 (function(exports){
   
   function ArticleList(apiResponse){
-    this.articles = [];
-    getArticles();
+    this.headlines = [];
+    this.getArticles(apiResponse);
   };
   
-  function getArticles(apiResponse) {
-    apiResponse.response.results.forEach(function() {
-      this.articles = [result.apiUrl, result.webTitle]
+  ArticleList.prototype.getArticles = function (apiResponse) {
+    var _this = this;
+    apiResponse.response.results.forEach(function(result) {
+      _this.headlines.push(new Article(result.apiUrl, result.webTitle, result.fields.body));
     })
-    this.articles.push()
   }
   
   exports.ArticleList = ArticleList;

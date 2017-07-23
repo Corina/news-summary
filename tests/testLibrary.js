@@ -5,9 +5,25 @@
     }
   };
   
+  function assertIsTruthy(one) {
+    if (!one) {
+      throw new Error("Assertion failed: " + one + " is not truthy ")
+    }
+  };
+  
   function assertNotNull(one) {
     if (one === null) {
       throw new Error("Assertion failed: the argument is null")
+    }
+  }
+  
+  function assertArrayEquals(one, two) {
+    var values = [];
+    one.forEach(function(item) {
+      values.push(two.includes(item));
+    })
+    if (values.includes(false) || one.length !== two.length) {
+      throw new Error("Assertion failed: the arrays are not equal")
     }
   }
   
@@ -18,5 +34,7 @@
   
   exports.it = it;
   exports.assertEquals = assertEquals;
+  exports.assertIsTruthy = assertIsTruthy;
+  exports.assertArrayEquals = assertArrayEquals;
   exports.assertNotNull = assertNotNull;
 })(this);
