@@ -1,8 +1,5 @@
 (function() {
-  var articleList = new ArticleList(mockGuardianApiResponse);
   var headlinesPassedLength = mockGuardianApiResponse.response.results.length;
-  
-  
   
   it("ArticleList has headlines", function() {
     assertEquals(articleList.headlines.length, headlinesPassedLength);
