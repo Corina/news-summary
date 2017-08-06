@@ -1,14 +1,12 @@
 (function(exports) {
 
-  function ArticleSummaryController(){
-  }
-
-  ArticleSummaryController.prototype.showArticleContentOnClick = function(element) {
+  function ArticleSummaryController(articleElement){
+    this.articleElement = articleElement;
     var _this = this;
     window.addEventListener("hashchange", function() {
-      _this.showArticleForCurrentPage(element);
+      _this.showArticleForCurrentPage(articleElement);
     });
-  };
+  }
 
   ArticleSummaryController.prototype.showArticleForCurrentPage = function(element) {
     this.showArticle(getArticleFromUrl(window.location), element);
@@ -20,7 +18,7 @@
 
   ArticleSummaryController.prototype.showArticle = function(articleId, element) {
     var webUrl = articleList.getWebUrlMatchingId(articleId);
-    this.requestSummary(getUrlForRequest(webUrl), element);
+    this.requestSummary(getUrlForRequest(webUrl), this.articleElement);
   };
 
   function getUrlForRequest(webUrl) {
